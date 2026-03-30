@@ -1,0 +1,7 @@
+{
+  "name": "tesslops/legal-numbering-architecture",
+  "version": "0.1.0",
+  "docs": "docs/index.md",
+  "summary": "A Claude AI skill that reviews and fixes clause numbering and stale cross-references in legal contracts and agreements.",
+  "private": true
+}
