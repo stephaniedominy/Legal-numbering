@@ -1,11 +1,15 @@
 # Contract Numbering Fixer
 
-Fixes two common contract-editing problems:
+Fixes three common contract-editing problems:
 
-1. **Broken list numbering**  
-   Auto-numbered clauses/sub-clauses go out of sync (duplicates, skips, mid-document resets like `1.1` appearing inside clause 10).
+1. **Broken auto-numbering / list numbering**  
+   Automatic numbering has gone out of sync (e.g. a sub-clause shows as `1.1` when it should be `10.4`, or clause numbers are duplicated/skipped).
+
 2. **Stale cross-references**  
-   Text references like “see clause 12.6” no longer match the clause numbering after edits.
+   Body text references like “see clause X” no longer match the clause numbering after edits, or point to the wrong clause.
+
+3. **Manual numbering that needs converting to auto-numbering**  
+   The contract uses typed/manual clause numbers (e.g. `10.4 Carry-over…` as plain text) and you want to convert the document into a properly auto-numbered structure (Word or Google Docs) so numbering stays consistent when clauses move or change.
 
 This skill guides a **systematic** workflow to repair numbering and validate/update cross-references without introducing new drafting errors.
 
@@ -18,7 +22,7 @@ Use this skill when a user says things like:
 - “Clause references look wrong / stale”
 - “Auto-numbering is garbled”
 - “I edited sections and now the numbering is off”
-- “Can you check cross-references?”
+- “This contract is manually numbered — can we convert it to auto-numbering?”
 
 Works best for:
 - Employment agreements
@@ -73,9 +77,14 @@ If uncertain, **don’t change it**—flag for manual review.
 
 Maintain a running “changes made” log.
 
-### 6) Fix broken numbering
+### 6) Fix broken numbering (and/or convert manual numbering)
 - Google Docs: “Continue numbering” / “Restart numbering”; re-join broken lists.
-- `.docx`: correct list properties (`numId`/`ilvl`) or (if safer) convert to explicit numbering text where dynamic lists aren’t required.
+- `.docx`: correct list properties (`numId`/`ilvl`) or (if safer) convert broken auto-numbered items to explicit numbering text **only** if dynamic lists are not needed.
+
+**For manual → auto-numbering conversions:**  
+- Ensure the clause hierarchy is correct (top-level vs sub-clause levels).
+- Convert headings and sub-clauses into real list items at the right indentation levels.
+- After conversion, re-scan for numbering resets/duplicates and validate cross-references, because clause numbers often change during conversion.
 
 ### 7) Handle structural issues
 Examples:
@@ -100,6 +109,7 @@ At the end, provide a short report:
 - Each cross-reference updated (old → new)
 - Each numbering fix (what was wrong → what it is now)
 - Any structural edits (removed/moved items)
+- If manual → auto-numbering conversion was done: what numbering scheme/levels were applied
 
 ### Things to manually check
 - Any reference where the intended target was ambiguous
